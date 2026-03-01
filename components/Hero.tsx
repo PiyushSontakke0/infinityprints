@@ -1,13 +1,17 @@
+"use client";
+
 import { motion } from "framer-motion";
 // images moved to public/ folder; use direct path URLs instead
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-end pb-20 md:pb-28 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-end pb-20 md:pb-28 overflow-hidden pt--100 mt-12">
       {/* Background */}
-      <div className="absolute inset-0">
-        <img src="/hero-printing.jpg" alt="Printing studio" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-foreground/40" />
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-4 md:inset-6">
+          <img src="/hero-printing.jpg" alt="Printing studio" className="w-full h-full object-cover rounded-2xl" />
+          <div className="absolute inset-0 bg-foreground/40 rounded-2xl" />
+        </div>
       </div>
 
       <div className="relative z-10 section-container w-full">

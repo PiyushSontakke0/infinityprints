@@ -10,6 +10,19 @@ const stats = [
   { value: "100%", label: "Quality commitment" },
 ];
 
+const founders = [
+  {
+    name: "Saurabh S. Dhole",
+    role: "Co-Founder",
+    image: "/founder-saurabh.jpg",
+  },
+  {
+    name: "Ajit Jain",
+    role: "Co-Founder",
+    image: "/founder-priya.jpg",
+  },
+];
+
 const About = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
@@ -61,17 +74,29 @@ const About = () => {
             </div>
 
             <div className="mt-8 p-8 rounded-lg bg-foreground text-background">
-              <p className="font-heading text-xl italic leading-relaxed mb-4">
+              <p className="font-heading text-xl italic leading-relaxed mb-6">
                 "We consistently strive to deliver high-quality work, meet deadlines, and go above and beyond to achieve outstanding results."
               </p>
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-background/20 flex items-center justify-center text-sm font-medium">
-                  S
-                </div>
-                <div>
-                  <p className="text-sm font-medium">Saurabh S. Dhole</p>
-                  <p className="text-xs text-background/60">Co-Founder</p>
-                </div>
+              <div className="flex gap-6">
+                {founders.map((founder, i) => (
+                  <motion.div
+                    key={founder.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
+                    className="flex flex-col items-center text-center flex-1"
+                  >
+                    <div className="w-20 h-20 rounded-full overflow-hidden mb-3 bg-background/20">
+                      <img
+                        src={founder.image}
+                        alt={founder.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <p className="font-medium text-sm">{founder.name}</p>
+                    <p className="text-xs text-background/70">{founder.role}</p>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </motion.div>

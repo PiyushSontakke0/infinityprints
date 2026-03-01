@@ -24,11 +24,10 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-background/95 backdrop-blur-md border-b border-border" : ""
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-white border-b border-border shadow-sm" : ""}`}
     >
       <div className="section-container flex items-center justify-between py-5">
-        <a href="#home" className="font-heading text-2xl italic text-foreground">
+        <a href="#home" className="font-heading text-2xl italic text-black">
           The Infinity Print
         </a>
 
@@ -37,20 +36,23 @@ const Navbar = () => {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm text-black hover:text-gray-700 transition-colors"
             >
               {link.label}
             </a>
           ))}
           <a
             href="#contact"
-            className="px-5 py-2.5 rounded-md bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity"
+            className={`px-5 py-2.5 rounded-md text-sm font-medium text-white transition-all ${scrolled
+              ? "bg-gray-100 hover:bg-gray-200"
+              : "bg-slate-800 hover:opacity-90"
+              }`}
           >
             Get a Quote
           </a>
         </div>
 
-        <button className="md:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
+        <button className="md:hidden text-black transition-colors" onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
